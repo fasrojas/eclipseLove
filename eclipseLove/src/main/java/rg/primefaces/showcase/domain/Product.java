@@ -38,7 +38,12 @@ public class Product implements Serializable {
     private String category;
     private int quantity;
     private InventoryStatus inventoryStatus;
-    public int getId() {
+	private int rating;
+    private Date data;
+    private List<Order> orders;
+
+
+	public int getId() {
 		return id;
 	}
 
@@ -134,9 +139,6 @@ public class Product implements Serializable {
 		this.orders = orders;
 	}
 
-	private int rating;
-    private Date data;
-    private List<Order> orders;
 
     public Product() {
     }
