@@ -1,0 +1,83 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:form>
+  <h5>Tela de clientes</h5>
+        <p:megaMenu orientation="horizontal" autoDisplay="false">
+            
+            <p:submenu label="Notificacoes" icon="pi pi-fw pi-users">
+            <link href="basic.xhtml"/>
+            </p:submenu>            
+            
+            <p:submenu label="Tarefas" icon="pi pi-fw pi-users">
+            </p:submenu>
+        
+            <p:submenu label="Relatorios" icon="pi pi-fw pi-users">
+            </p:submenu>
+
+            <p:submenu label="Cadastrar" icon="pi pi-fw pi-users">
+            </p:submenu>
+
+            <p:submenu label="Clientes" icon="pi pi-fw pi-calendar">
+            </p:submenu>
+
+            <p:submenu label="Gerenciar Usuarios" icon="pi pi-fw pi-cog">
+            </p:submenu>
+            
+        </p:megaMenu>
+    <div class="card">
+        <p:dataTable var="product" value="#{dtBasicView.products}">
+
+            <p:column headerText="Nome">
+                <h:outputText value="#{product.name}" />
+            </p:column>
+
+            <p:column headerText="Codigo">
+                <h:outputText value="#{product.code}" />
+            </p:column>
+            
+            <p:column headerText="Servicos">
+                <!-- Adicione aqui a lógica para exibir os serviços do cliente -->
+            </p:column>
+            
+            <p:column headerText="Idade">
+                <!-- Adicione aqui a lógica para exibir a idade do cliente -->
+            </p:column>
+            
+            <p:column headerText="Status">
+                <!-- Adicione aqui a lógica para exibir o status do cliente -->
+            </p:column>
+            
+            <p:column headerText="Histórico">
+                <!-- Adicione aqui a lógica para exibir o histórico do cliente -->
+            </p:column>
+            
+            <p:column headerText="Avaliação">
+                <!-- Adicione aqui a lógica para exibir a avaliação do cliente -->
+            </p:column>
+            
+            <p:column headerText="Foto">
+                <h:outputText value="#{product.image}" />
+            </p:column>
+            
+            <p:column headerText="Seleção">
+                <!-- Adicione aqui a lógica para selecionar o cliente -->
+            </p:column>
+            
+            <p:column headerText="Contatos">
+                <!-- Adicione aqui a lógica para exibir os contatos do cliente -->
+            </p:column>
+            
+            <p:column headerText="Excluir">
+                <!-- Adicione aqui a lógica para excluir o cliente -->
+            </p:column>
+            
+        </p:dataTable>
+    </div>
+</h:form>
+
+</html>
