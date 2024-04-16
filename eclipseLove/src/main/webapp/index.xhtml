@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Tela de Login</title>
-</head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Tela de Login</title>
+</head>	
+
 <body>
-    <h2>Tela de Login</h2>
-    <form action="Local que recebe os dados digitados" method="post">
-        <label for="username">Usuário:</label><br />
-        <input type="text" id="username" name="username" /><br />
-        <label for="password">Senha:</label><br />
-        <input type="password" id="password" name="password" /><br />
-        <input type="submit" value="Login" />
-        
-        <h4><a href="/src/main/webapp/eclipse/basic.xhtml">Tela Notificacoes</a></h4>
-        <h4><a href="/src/main/webapp/eclipse/TelaClientes.xhtml">Tela Clientes</a></h4>
-        
-    </form>
+	<div class="CLogin">
+		<h:form>
+	        <p:messages>
+	            <p:autoUpdate/>
+	        </p:messages>
+	
+	        <h:panelGrid id="grid" columns="2" cellpadding="7">
+	            <h:outputLabel for="username" value="Usuário:"/>
+	            <p:inputText id="username" value="#{loginView.username}" required="true" label="Usuário"/>
+	            <p:message for="username"/>
+	
+	            <h:outputLabel for="password" value="Senha:"/>
+	            <p:password id="password" value="#{loginView.password}" required="true" label="Senha"/>
+	            <p:message for="password"/>
+	        </h:panelGrid>
+	        
+	        <p:commandButton value="Login" action="#{loginView.login}" ajax="false"/>
+	        
+	    </h:form>
+	</div>
 </body>
-</html>
+
+ </html>
