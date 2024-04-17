@@ -7,28 +7,20 @@
 </h:head>
 <h:form>
   <h5>Tela de clientes</h5>
-        <p:megaMenu orientation="horizontal" autoDisplay="false">
-            
-            <p:submenu label="Notificacoes" icon="pi pi-fw pi-users">
-            <link href="basic.xhtml"/>
-            </p:submenu>            
-            
-            <p:submenu label="Tarefas" icon="pi pi-fw pi-users">
-            </p:submenu>
-        
-            <p:submenu label="Relatorios" icon="pi pi-fw pi-users">
-            </p:submenu>
 
-            <p:submenu label="Cadastrar" icon="pi pi-fw pi-users">
-            </p:submenu>
+    <div class="card">
+        <h5 class="mt-0">Basic</h5>
+        <p:tabMenu activeIndex="#{param.i}">
+            <p:menuitem value="Notificações" outcome="basic.xhtml" icon="pi pi-fw pi-home">
+                <f:param name="i" value="0"/>
+            </p:menuitem>
+            <p:menuitem value="Clientes" outcome="TelaClientes.xhtml" icon="pi pi-fw pi-calendar"
+                        badge="#{menuBadgeView.badgeModel}">
+                <f:param name="i" value="1"/>
+            </p:menuitem>
+        </p:tabMenu>
+    </div>
 
-            <p:submenu label="Clientes" icon="pi pi-fw pi-calendar">
-            </p:submenu>
-
-            <p:submenu label="Gerenciar Usuarios" icon="pi pi-fw pi-cog">
-            </p:submenu>
-            
-        </p:megaMenu>
     <div class="card">
         <p:dataTable var="product" value="#{dtBasicView.products}">
 

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+
+
+<h:head>
+    <h:title>Tela Clientes</h:title>
+</h:head>
+
+
+<h:body>
+
+    <h5> Tela Clientes</h5>
+
+    <div class="card">
+        <h5 class="mt-0">Basic</h5>
+        <p:tabMenu activeIndex="#{param.i}">
+            <p:menuitem value="Notificações" outcome="basic.xhtml" icon="pi pi-fw pi-home">
+                <f:param name="i" value="0"/>
+            </p:menuitem>
+            <p:menuitem value="Clientes" outcome="TelaClientes.xhtml" icon="pi pi-fw pi-calendar"
+                        badge="#{menuBadgeView.badgeModel}">
+                <f:param name="i" value="1"/>
+            </p:menuitem>
+        </p:tabMenu>
+    </div>
+
+    <div class="card">
+        <h:form>
+            <p:panel id="panel" header="Filtro de Busca" styleClass="mb-3">
+                <p:growl id="messages"/>
+
+                <h:panelGrid columns="4" cellpadding="7">
+
+                    <div>
+                        <h:outputLabel for="txt1" value="Código do Cliente"/>
+                        <p:inputText id="txt1" value="#{input value}" required="true" label="Text 1" style="width: 12rem">
+                            <f:validateLength minimum="2"/>
+                        </p:inputText>
+                        <p:message for="txt1"/>
+                        <h:outputText value="#{searchView.text1}"/>
+                    </div>
+
+                    <div>
+                        <h:outputLabel for="txt2" value="Status"/>
+                        <p:selectOneMenu id="txt2" value="#{Input Value}" required="true" label="Text 2" style="width: 12rem">
+                            <f:selectItem itemLabel="Selecione um" itemValue="" noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Status 1" itemValue="1"/>
+                            <f:selectItem itemLabel="Status 2" itemValue="2"/>
+                            <f:selectItem itemLabel="Status 3" itemValue="3"/>
+                        </p:selectOneMenu>
+                    </div>
+
+                    <div>
+                        <h:outputLabel for="txt2" value="País"/>
+                        <p:selectOneMenu id="txt2" value="#{Input Value}" required="true" label="Text 2" style="width: 12rem">
+                            <f:selectItem itemLabel="Selecione um" itemValue="" noSelectionOption="true"/>
+                            <f:selectItem itemLabel="País 1" itemValue="1"/>
+                            <f:selectItem itemLabel="País 2" itemValue="2"/>
+                            <f:selectItem itemLabel="País 3" itemValue="3"/>
+                        </p:selectOneMenu>
+                    </div>
+
+                    <div>
+                        <h:outputLabel for="txt2" value="Sexo"/>
+                        <p:selectOneMenu id="txt2" value="#{Input Value}" required="true" label="Text 2" style="width: 12rem">
+                            <f:selectItem itemLabel="Selecione um" itemValue="" noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Sexo 1" itemValue="1"/>
+                            <f:selectItem itemLabel="Sexo 2" itemValue="2"/>
+                        </p:selectOneMenu>
+                    </div>
+
+                    <div>
+                        <h:outputLabel for="txt1" value="Nome"/>
+                        <p:inputText id="txt1" value="#{input value}" required="true" label="Text 1" style="width: 12rem">
+                            <f:validateLength minimum="2"/>
+                        </p:inputText>
+                        <p:message for="txt1"/>
+                        <h:outputText value="#{input value}"/>
+                    </div>
+
+                    <div>
+                        <h:outputLabel for="txt2" value="Ranking"/>
+                        <p:selectOneMenu id="txt2" value="#{Input Value}" required="true" label="Text 2" style="width: 12rem">
+                            <f:selectItem itemLabel="Selecione um" itemValue="" noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Ranking 1" itemValue="1"/>
+                            <f:selectItem itemLabel="Ranking 2" itemValue="2"/>
+                        </p:selectOneMenu>
+                    </div>
+
+                    <div>
+                        <h:outputLabel for="txt2" value="Estado"/>
+                        <p:selectOneMenu id="txt2" value="#{Input Value}" required="true" label="Text 2" style="width: 12rem">
+                            <f:selectItem itemLabel="Selecione um" itemValue="" noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Estado 1" itemValue="1"/>
+                            <f:selectItem itemLabel="Estado 2" itemValue="2"/>
+                        </p:selectOneMenu>
+                    </div>
+
+                    <div>
+                        <h:outputLabel for="txt2" value="Estado"/>
+                        <p:selectOneMenu id="txt2" value="#{Input Value}" required="true" label="Text 2" style="width: 12rem">
+                            <f:selectItem itemLabel="Selecione um" itemValue="" noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Estado 1" itemValue="1"/>
+                            <f:selectItem itemLabel="Estado 2" itemValue="2"/>
+                        </p:selectOneMenu>
+                    </div>
+
+<!--                    <p:message for=""/>-->
+
+                    <h:outputText value="#{searchView.text2}"/>
+                </h:panelGrid>
+            </p:panel>
+
+            <p:commandButton process="@parent:@parent" update="@form" value="Process: @parent:parent (Form)" styleClass="mr-2" />
+            <p:commandButton process="@form:@child(1):txt1" update="@form"
+                             value="Process: @form:@child(1):txt1 (Text 1)"/>
+        </h:form>
+    </div>
+
+</h:body>
+
+</html>
