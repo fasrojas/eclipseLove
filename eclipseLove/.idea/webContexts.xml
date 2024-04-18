@@ -3,10 +3,10 @@
   <component name="WebContextManager">
     <option name="state">
       <map>
-        <entry key="file://$PROJECT_DIR$/src/main/webapp/index.xhtml" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/eclipse/TelaClientes.xhtml" value="file://$PROJECT_DIR$/src/main/webapp/eclipse" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/eclipse/basic.xhtml" value="file://$PROJECT_DIR$/src/main/webapp/eclipse" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/index.xhtml" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/eclipse/TelaClientes.xhtml" value="file://$PROJECT_DIR$/src/main/webapp/eclipse" />
       </map>
     </option>
   </component>
