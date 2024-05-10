@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <h:title>Tela Clientes</h:title>
+</h:head>
+
+<h:body>
+
+    <div class="card">
+        <h5 class="mt-0">Basic</h5>
+        <p:tabMenu activeIndex="#{param.i}">
+            <p:menuitem value="Notificações" outcome="basic.xhtml" icon="pi pi-fw pi-home">
+                <f:param name="i" value="0"/>
+            </p:menuitem>
+            <p:menuitem value="Tarefas" outcome="TelaTarefas.xhtml" icon="pi pi-fw pi-calendar"
+                        badge="#{menuBadgeView.badgeModel}">
+                <f:param name="i" value="1"/>
+            </p:menuitem>
+
+            <p:menuitem value="Relatórios" outcome="TelaRelatorios.xthml" icon="pi pi-fw pi-calendar"
+                        badge="#{menuBadgeView.badgeModel}">
+                <f:param name="i" value="2"/>
+            </p:menuitem>
+
+            <p:menuitem value="Cadastro" outcome="TelaCadastro.xhtml" icon="pi pi-fw pi-calendar"
+                        badge="#{menuBadgeView.badgeModel}">
+                <f:param name="i" value="3"/>
+            </p:menuitem>
+
+            <p:menuitem value="Cliente" outcome="TelaClientes.xhtml" icon="pi pi-fw pi-calendar"
+                        badge="#{menuBadgeView.badgeModel}">
+                <f:param name="i" value="4"/>
+            </p:menuitem>
+
+            <p:menuitem value="BuscaCliente" outcome="TelaBuscaClientes.xhtml" icon="pi pi-fw pi-calendar"
+                        badge="#{menuBadgeView.badgeModel}">
+                <f:param name="i" value="5"/>
+            </p:menuitem>
+
+            <p:menuitem value="Cliente" outcome="TelaClientes.xhtml" icon="pi pi-fw pi-calendar"
+                        badge="#{menuBadgeView.badgeModel}">
+                <f:param name="i" value="4"/>
+            </p:menuitem>
+
+        </p:tabMenu>
+    </div>
+
+    <h5>Tela de Cadastro</h5>
+
+    <h:form>
+        <div class="card">
+            <h5>Informações do Cliente</h5>
+            <div class="grid ui-fluid">
+                <div class="col-12 md:col-4">
+                    <div class="ui-inputgroup">
+                        <div class="ui-inputgroup-addon"><i class="pi pi-user"></i></div>
+                        <p:inputText placeholder="Código do Cliente"/>
+                    </div>
+                </div>
+                <div class="col-12 md:col-4">
+                    <div class="ui-inputgroup">
+                        <div class="ui-inputgroup-addon"><i class="pi pi-tag"></i></div>
+                        <p:selectOneMenu>
+                            <f:selectItem itemLabel="Selecione um Status" itemValue=""/>
+                            <f:selectItem itemLabel="Ativo" itemValue="Ativo"/>
+                            <f:selectItem itemLabel="Inativo" itemValue="Inativo"/>
+                        </p:selectOneMenu>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="ui-inputgroup">
+                        <div class="ui-inputgroup-addon"><i class="pi pi-user"></i></div>
+                        <p:inputText placeholder="Nome Completo"/>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="ui-inputgroup">
+                        <div class="ui-inputgroup-addon"><i class="pi pi-envelope"></i></div>
+                        <p:inputText placeholder="E-mail"/>
+                    </div>
+                </div>
+                <div class="col-12 md:col-6">
+                    <div class="ui-inputgroup">
+                        <div class="ui-inputgroup-addon"><i class="pi pi-mobile"></i></div>
+                        <p:inputText placeholder="Celular"/>
+                    </div>
+                </div>
+                <div class="col-12 md:col-6">
+                    <div class="ui-inputgroup">
+                        <div class="ui-inputgroup-addon"><i class="pi pi-phone"></i></div>
+                        <p:inputText placeholder="Outros Telefones"/>
+                    </div>
+                </div>
+                <div class="col-12 md:col-4">
+                    <div class="ui-inputgroup">
+                        <div class="ui-inputgroup-addon"><i class="pi pi-users"></i></div>
+                        <p:selectOneMenu>
+                            <f:selectItem itemLabel="Selecione o Sexo" itemValue=""/>
+                            <f:selectItem itemLabel="Masculino" itemValue="Masculino"/>
+                            <f:selectItem itemLabel="Feminino" itemValue="Feminino"/>
+                            <f:selectItem itemLabel="Outro" itemValue="Outro"/>
+                        </p:selectOneMenu>
+                    </div>
+                </div>
+                <div class="col-12 md:col-4">
+                    <div class="ui-inputgroup">
+                        <div class="ui-inputgroup-addon"><i class="pi pi-users"></i></div>
+                        <p:selectOneMenu>
+                            <f:selectItem itemLabel="Selecione a Orientação Sexual" itemValue=""/>
+                            <f:selectItem itemLabel="Heterossexual" itemValue="Heterossexual"/>
+                            <f:selectItem itemLabel="Homossexual" itemValue="Homossexual"/>
+                            <f:selectItem itemLabel="Bissexual" itemValue="Bissexual"/>
+                            <f:selectItem itemLabel="Pansexual" itemValue="Pansexual"/>
+                            <f:selectItem itemLabel="Outro" itemValue="Outro"/>
+                        </p:selectOneMenu>
+                    </div>
+                </div>
+                <div class="col-12 md:col-4">
+                    <div class="ui-inputgroup">
+                        <div class="ui-inputgroup-addon"><i class="pi pi-briefcase"></i></div>
+                        <p:inputText placeholder="Profissão Atual"/>
+                    </div>
+                </div>
+                <div class="col-12 md:col-4">
+                    <div class="ui-inputgroup">
+                        <div class="ui-inputgroup-addon"><i class="pi pi-calendar"></i></div>
+                        <p:calendar placeholder="Data de Nascimento"/>
+                    </div>
+                </div>
+                <div class="col-12 md:col-4">
+                    <div class="ui-inputgroup">
+                        <div class="ui-inputgroup-addon"><i class="pi pi-weight"></i></div>
+                        <p:inputText placeholder="Peso"/>
+                    </div>
+                </div>
+                <div class="col-12 md:col-4">
+                    <div class="ui-inputgroup">
+                        <div class="ui-inputgroup-addon"><i class="pi pi-sort-numeric-up"></i></div>
+                        <p:inputText placeholder="Estatura"/>
+                    </div>
+                </div>
+                <div class="col-12 md:col-4">
+                    <div class="ui-inputgroup">
+                        <div class="ui-inputgroup-addon"><i class="pi pi-globe"></i></div>
+                        <p:selectOneMenu>
+                            <f:selectItem itemLabel="Selecione o País" itemValue=""/>
+                            <!-- Aqui você pode adicionar os países -->
+                        </p:selectOneMenu>
+                    </div>
+                </div>
+                <div class="col-12 md:col-4">
+                    <div class="ui-inputgroup">
+                        <div class="ui-inputgroup-addon"><i class="pi pi-map"></i></div>
+                        <p:selectOneMenu>
+                            <f:selectItem itemLabel="Selecione o Estado" itemValue=""/>
+                            <!-- Aqui você pode adicionar os estados -->
+                        </p:selectOneMenu>
+                    </div>
+                </div>
+                <div class="col-12 md:col-4">
+                    <div class="ui-inputgroup">
+                        <div class="ui-inputgroup-addon"><i class="pi pi-home"></i></div>
+                        <p:inputText placeholder="Cidade"/>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="ui-inputgroup">
+                        <div class="ui-inputgroup-addon"><i class="pi pi-list"></i></div>
+                        <p:inputTextarea placeholder="Serviços"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p:commandButton value="Salvar" action="#{bean.save}" ajax="false"/>
+    </h:form>
+
+
+</h:body>
+
+</html>

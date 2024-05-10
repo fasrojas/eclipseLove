@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <h:title>Tela Clientes</h:title>
+</h:head>
+
+<h:body>
+
+    <div class="card">
+        <h5 class="mt-0">Basic</h5>
+        <p:tabMenu activeIndex="#{param.i}">
+            <p:menuitem value="Notificações" outcome="basic.xhtml" icon="pi pi-fw pi-home">
+                <f:param name="i" value="0"/>
+            </p:menuitem>
+            <p:menuitem value="Tarefas" outcome="TelaTarefas.xhtml" icon="pi pi-fw pi-calendar"
+                        badge="#{menuBadgeView.badgeModel}">
+                <f:param name="i" value="1"/>
+            </p:menuitem>
+
+            <p:menuitem value="Relatórios" outcome="TelaRelatorios.xthml" icon="pi pi-fw pi-calendar"
+                        badge="#{menuBadgeView.badgeModel}">
+                <f:param name="i" value="2"/>
+            </p:menuitem>
+
+            <p:menuitem value="Cadastro" outcome="TelaCadastro.xhtml" icon="pi pi-fw pi-calendar"
+                        badge="#{menuBadgeView.badgeModel}">
+                <f:param name="i" value="3"/>
+            </p:menuitem>
+
+            <p:menuitem value="Cliente" outcome="TelaClientes.xhtml" icon="pi pi-fw pi-calendar"
+                        badge="#{menuBadgeView.badgeModel}">
+                <f:param name="i" value="4"/>
+            </p:menuitem>
+
+            <p:menuitem value="BuscaCliente" outcome="TelaBuscaClientes.xhtml" icon="pi pi-fw pi-calendar"
+                        badge="#{menuBadgeView.badgeModel}">
+                <f:param name="i" value="5"/>
+            </p:menuitem>
+
+            <p:menuitem value="Cliente" outcome="TelaClientes.xhtml" icon="pi pi-fw pi-calendar"
+                        badge="#{menuBadgeView.badgeModel}">
+                <f:param name="i" value="4"/>
+            </p:menuitem>
+
+        </p:tabMenu>
+    </div>
+
+    <hr/>
+    <div>
+        <h:form>
+            <p:fieldset>
+                <p:panelGrid columns="6">
+                    <h:outputLabel for="de" value="De:" />
+                    <p:inputText id="de" />
+
+                    <h:outputLabel for="para" value="Para:" />
+                    <p:inputText id="para" />
+
+                    <h:outputLabel for="status" value="Status:" />
+                    <p:selectOneMenu id="status">
+                        <f:selectItem itemLabel="Pendentes" itemValue="Pendentes" />
+                        <f:selectItem itemLabel="Finalizadas" itemValue="Finalizadas" />
+                        <f:selectItem itemLabel="Atrasadas" itemValue="Atrasadas" />
+                        <f:selectItem itemLabel="Todas" itemValue="Todas" />
+                    </p:selectOneMenu>
+
+                    <h:outputLabel for="data" value="Data:" />
+                    <p:selectOneMenu id="data">
+                        <f:selectItem itemLabel="Esta Semana" itemValue="Esta Semana" />
+                        <f:selectItem itemLabel="Hoje" itemValue="Hoje" />
+                        <f:selectItem itemLabel="Definir" itemValue="Definir" />
+                    </p:selectOneMenu>
+
+                    <p:commandButton value="Filtrar" action="#{tarefaBean.filtrar}" update="tabelaTarefas" />
+                </p:panelGrid>
+            </p:fieldset>
+        </h:form>
+    </div>
+    <hr/>
+    <div>
+        <h2>Visualizar Tarefas</h2>
+        <p:dataTable var="tarefa" value="#{tarefaBean.listaTarefas}" id="tabelaTarefas">
+            <p:column headerText="Para (destinatário)">
+                <h:outputText value="#{tarefa.usuario}"/>
+            </p:column>
+            <p:column headerText="Adicionada por">
+                <h:outputText value="#{tarefa.adicionadaPor}"/>
+            </p:column>
+            <p:column headerText="Tipo de tarefa">
+                <h:outputText value="#{tarefa.tipo}"/>
+            </p:column>
+            <p:column headerText="Cliente">
+                <h:outputText value="#{tarefa.cliente}"/>
+            </p:column>
+            <p:column headerText="Para quando">
+                <h:outputText value="#{tarefa.data}"/>
+            </p:column>
+            <p:column headerText="Descrição">
+                <h:outputText value="#{tarefa.descricao}"/>
+            </p:column>
+        </p:dataTable>
+    </div>
+
+</h:body>
+
+</html>

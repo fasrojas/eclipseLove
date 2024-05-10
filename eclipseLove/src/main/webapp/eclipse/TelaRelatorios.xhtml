@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <h:title>Tela Clientes</h:title>
+</h:head>
+
+<h:body>
+
+    <div class="card">
+        <h5 class="mt-0">Basic</h5>
+        <p:tabMenu activeIndex="#{param.i}">
+            <p:menuitem value="Notificações" outcome="basic.xhtml" icon="pi pi-fw pi-home">
+                <f:param name="i" value="0"/>
+            </p:menuitem>
+            <p:menuitem value="Tarefas" outcome="TelaTarefas.xhtml" icon="pi pi-fw pi-calendar"
+                        badge="#{menuBadgeView.badgeModel}">
+                <f:param name="i" value="1"/>
+            </p:menuitem>
+
+            <p:menuitem value="Relatórios" outcome="TelaRelatorios.xthml" icon="pi pi-fw pi-calendar"
+                        badge="#{menuBadgeView.badgeModel}">
+                <f:param name="i" value="2"/>
+            </p:menuitem>
+
+            <p:menuitem value="Cadastro" outcome="TelaCadastro.xhtml" icon="pi pi-fw pi-calendar"
+                        badge="#{menuBadgeView.badgeModel}">
+                <f:param name="i" value="3"/>
+            </p:menuitem>
+
+            <p:menuitem value="Cliente" outcome="TelaClientes.xhtml" icon="pi pi-fw pi-calendar"
+                        badge="#{menuBadgeView.badgeModel}">
+                <f:param name="i" value="4"/>
+            </p:menuitem>
+
+            <p:menuitem value="BuscaCliente" outcome="TelaBuscaClientes.xhtml" icon="pi pi-fw pi-calendar"
+                        badge="#{menuBadgeView.badgeModel}">
+                <f:param name="i" value="5"/>
+            </p:menuitem>
+
+            <p:menuitem value="Cliente" outcome="TelaClientes.xhtml" icon="pi pi-fw pi-calendar"
+                        badge="#{menuBadgeView.badgeModel}">
+                <f:param name="i" value="4"/>
+            </p:menuitem>
+
+        </p:tabMenu>
+    </div>
+
+    <h5>Tela de Relatórios</h5>
+
+
+    <h3>Relatório</h3>
+
+    <h:form>
+        <div class="card">
+            <div class="grid ui-fluid">
+                <div class="col-12">
+                    <h5>Data de Início</h5>
+                    <p:calendar placeholder="Data de Início" />
+                </div>
+                <div class="col-12">
+                    <h5>Data de Término</h5>
+                    <p:calendar placeholder="Data de Término" />
+                </div>
+                <div class="col-12">
+                    <h5>1. Dê um título a este relatório:</h5>
+                    <p:inputText placeholder="Título do Relatório" />
+                </div>
+                <div class="col-12">
+                    <h5>2. Selecione a(s) métrica(s).</h5>
+                    <p:selectManyCheckbox layout="pageDirection">
+                        <f:selectItem itemValue="Quantidade de Seleção" itemLabel="Quantidade de Seleção" />
+                        <f:selectItem itemValue="Quantidade de Resposta" itemLabel="Quantidade de Resposta" />
+                        <f:selectItem itemValue="Quantidade de Encontro" itemLabel="Quantidade de Encontro" />
+                        <f:selectItem itemValue="Feedback de Encontro" itemLabel="Feedback de Encontro" />
+                        <f:selectItem itemValue="Atualização de Perfil" itemLabel="Atualização de Perfil" />
+                        <f:selectItem itemValue="Ativação de Cliente" itemLabel="Ativação de Cliente" />
+                        <!-- Adicione mais itens conforme necessário -->
+                    </p:selectManyCheckbox>
+                </div>
+                <div class="col-12">
+                    <h5>3. Selecione a dimensão:</h5>
+                    <p:selectManyCheckbox layout="pageDirection">
+                        <f:selectItem itemValue="Usuário" itemLabel="Usuário" />
+                        <f:selectItem itemValue="Cliente" itemLabel="Cliente" />
+                        <f:selectItem itemValue="Status" itemLabel="Status" />
+                        <f:selectItem itemValue="Serviço" itemLabel="Serviço" />
+                        <!-- Adicione mais itens conforme necessário -->
+                    </p:selectManyCheckbox>
+                </div>
+                <div class="col-12">
+                    <h5>4. Se necessário, utilize os filtros.</h5>
+                    <div class="ui-g">
+                        <div class="ui-g-12">
+                            <p:selectOneMenu>
+                                <f:selectItem itemLabel="Tipo de seleção" />
+                                <!-- Adicione opções conforme necessário -->
+                            </p:selectOneMenu>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:selectOneMenu>
+                                <f:selectItem itemLabel="Qual cliente" />
+                                <!-- Adicione opções conforme necessário -->
+                            </p:selectOneMenu>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p:commandButton value="Gerar Relatório" action="#{bean.generateReport}" ajax="false" />
+    </h:form>
+
+</h:body>
+
+</html>
